@@ -1,0 +1,6 @@
+flask
+flask-mongoengine
+mongoengine
+blueprint
+flask-restful
+
