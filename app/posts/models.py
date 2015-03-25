@@ -2,11 +2,6 @@ from flask.ext.mongoengine import MongoEngine
 
 db=MongoEngine()
 
-class _user(db.Document):
-	_name=db.StringField()
-	_emailid=db.StringField()
-	_password=db.StringField()
-
 class _post(db.Document):
 	_author=db.ReferenceField(_user)
 	_title=db.StringField()
@@ -17,4 +12,18 @@ class _post(db.Document):
 
 class _comments(db.EmbeddedDocument):
 	_content=db.StringField()	
+
+
+
+class _imagepost(_post):
+	_image_path=db.StringField()
+	
+class _soundpost(_post):
+	_sound_path=db.StringField()
+
+class _videopost(_post):
+	_video_path=db.StringField()
+
+class _article(_post):
+	_article_link=db.StringField()
 
