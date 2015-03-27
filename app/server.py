@@ -2,12 +2,17 @@ from flask import Flask,render_template,request
 
 from flask.ext.mongoengine import MongoEngine
 
-from models import db
+from posts.models import db
+
+from flask.ext.restful import Api
+
+from posts.views import Post
+
+from resources import *
 
 app=Flask(__name__)
-
 app.config["MONGODB_SETTINGS"]={'db':'hoistme'}
-
+api=Api(app)
 
 db.init_app(app)
 
@@ -27,4 +32,6 @@ def blueprints():
 
 blueprints()	
 	
+#RESOURCES FOR API
 
+api.add_resource(Post,'/post')

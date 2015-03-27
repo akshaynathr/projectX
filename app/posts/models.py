@@ -1,5 +1,5 @@
 from flask.ext.mongoengine import MongoEngine
-
+from users.models import _user
 db=MongoEngine()
 
 class _post(db.Document):
