@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html>
+<!-- nclude meta tag to ensure proper rendering and touch zooming -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Include jQuery Mobile stylesheets -->
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+
+<!-- Include the jQuery library -->
+<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+
+<!-- Include the jQuery Mobile library -->
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<head>
+ <title>jQuery Mobile Application</title>
+ </head>
+ <body>
+ 
+	<section  id="page1" data-role="page">
+		<header data-role="header"> <h1> HoistMe </h1> </header>
+		<div class="content" style="height:100%;" data-role="content"><p> Welcome to HoistMe</p> 
+
+<ul data-role="listview" data-inset="true">
+
+<li data-role="list-divider"> Trending Events Here <span class="ui-li-count">2</span></li>
+<li > <a href="#">
+
+
+<h2>Stephen Weber</h2>
+    <p><strong>You've been invited to a meeting at Filament Group in Boston, MA</strong></p>
+    <p>Hey Stephen, if you're available at 10am tomorrow, we've got a meeting with the jQuery team.</p>
+        <p class="ui-li-aside"><strong>6:24</strong>PM</p>
+    
+
+
+
+
+</a></li>
+
+
+</ul>
+
+
+</div>
+		<footer data-role="footer"> <h1> Jquery Mobile</h1> </footer>	
+
+	</section>
+
+	<section id="page2" data-role="page2">
+		<header data-role="header"><h1> Page 2</h1> </header>
+<div class="content" data-role="content"> <p> Page 2 </p></div>
+<footer data-role="footer"> <h1> footer</h1></footer>	
+	</section>
+
+<script > $.mobile.showpageloading()</script>
+
+</body>
+</html>
