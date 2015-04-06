@@ -1,5 +1,6 @@
 from flask import Flask,render_template,request
 
+
 from flask.ext.mongoengine import MongoEngine
 
 from posts.models import db
