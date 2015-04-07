@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<!-- nclude meta tag to ensure proper rendering and touch zooming -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Include jQuery Mobile stylesheets -->
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+
+<!-- Include the jQuery library -->
+<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+
+
+<script src="post.js"></script>
+
+<!-- Include the jQuery Mobile library -->
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<head>
+ <title> HoistMe</title>
+ </head>
+ <body>
+
+
+
+        <section  id="page1" data-role="page">
+
+                <header data-role="header"> <h1> Hoist Message </h1></header>
+
+                <div class="content" style="height:100%;" data-role="content">
+			
+			<div data-role="fieldcontain">
+				<label for="textarea">Hoist your Message </label>
+				<textarea cols="40" rows="8" name="textarea" id="text"></textarea>
+		</br>	
+<button class="ui-btn" style="margin:20px; width:40%; float:right;" onclick="callme()">HoistMe</button>
+
+<button class="show-page-loading-msg" data-textonly="false" data-textvisible="true" data-msgtext="" data-inline="true">Icon + text</button>			
+
+</div>
+
+		
+
+		</div>
+
+
+	</section>
+
+</body>
+
+</html>
+
