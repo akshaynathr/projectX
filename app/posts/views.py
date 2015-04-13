@@ -11,16 +11,22 @@ class Post(Resource):
 		apikey=request.headers.get("Authorization",'')
 		
 		if apikey.lower() =="123":
-			return "Accepted"	
+
+			json=request.json
+			data=json['text']
+			print(data)
+
+			
+			return data	
 		else:
 			return "Authenticate"
-		
-		return "welcome to hoistme api"
+				
+
 	def post(self):
-		file=request.files['file']
-		if file:
-			return "File detected"
-		else:
-			return "File not detected"
+
+		json=request.json
+		print(json['data'])
+		return json['data']
+
 	def put(self):
 		return "feature not available now"
