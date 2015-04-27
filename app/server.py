@@ -1,5 +1,5 @@
 from flask import Flask,render_template,request
-
+from flask.ext.cors import CORS
 
 from flask.ext.mongoengine import MongoEngine
 
@@ -11,10 +11,10 @@ from posts.views import Post
 
 from resources import *
 
-app=Flask(__name__)
+app=Flask(__name__,static_url_path='/templates')
 app.config["MONGODB_SETTINGS"]={'db':'hoistme'}
 api=Api(app)
-
+cors = CORS(app)
 db.init_app(app)
 
 
@@ -23,7 +23,7 @@ db.init_app(app)
 @app.route('/')
 
 def home():
-	return render_template('home.html')
+	return render_template('index.html')
 
 
 #flask blueprint registering
@@ -36,3 +36,4 @@ blueprints()
 #RESOURCES FOR API
 
 api.add_resource(Post,'/post')
+
