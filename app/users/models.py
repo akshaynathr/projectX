@@ -2,8 +2,23 @@ from flask.ext.mongoengine import MongoEngine
 
 db=MongoEngine()
 
-class _user(db.Document):
-        _name=db.StringField()
-        _emailid=db.StringField()
-        _password=db.StringField()
+class User(db.Document):
+	
+	email=db.StringField()
+	password=db.StringField()
+	authenticated=db.StringField()
+
+	def is_active(self):
+		return True
+
+	def get_id(self):
+		return self.email
+
+	def is_authenticated(self):
+		return self.authenticated
+
+	def is_anonymous(self):
+		return False
+
+
 

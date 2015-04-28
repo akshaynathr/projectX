@@ -5,6 +5,7 @@ from flask.ext.restful import Resource
 
 from werkzeug import secure_filename
 #post=Blueprint('post',__name__,template_folder='templates')
+from models import _text
 
 class Post(Resource):
 	def get(self):
@@ -16,7 +17,6 @@ class Post(Resource):
 			data=json['text']
 			print(data)
 
-			
 			return data	
 		else:
 			return "Authenticate"
@@ -25,7 +25,12 @@ class Post(Resource):
 	def post(self):
 
 		json=request.json
-		print(json['data'])
+		userid=json['id']
+		
+		text=json['data']
+		# decode the json and appropriately  call the required functions
+		text_obj=_text.objects(pk=userid).first()
+		text
 		return json['data']
 
 	def put(self):

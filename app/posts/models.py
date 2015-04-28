@@ -1,5 +1,7 @@
 from flask.ext.mongoengine import MongoEngine
-from users.models import _user
+
+from users.models import  User as _user
+
 db=MongoEngine()
 
 class _post(db.Document):
@@ -14,6 +16,8 @@ class _comments(db.EmbeddedDocument):
 	_content=db.StringField()	
 
 
+class _text(_post):
+	text=db.StringField()
 
 class _imagepost(_post):
 	_image_path=db.StringField()
