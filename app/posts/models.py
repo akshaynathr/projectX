@@ -1,15 +1,14 @@
 from flask.ext.mongoengine import MongoEngine
 
-from users.models import  User as _user
 
 db=MongoEngine()
 
-class _post(db.Document):
-	_author=db.ReferenceField(_user)
+class _post(db.EmbeddedDocument):
+	#_author=db.ReferenceField(_user)
 	_title=db.StringField()
-	_content=db.StringField()
+	#_content=db.StringField()
 #	_position
-	_tags=db.ListField(db.StringField())
+	#_tags=db.ListField(db.StringField())
 	meta={ 'allow_inheritance':True}
 
 class _comments(db.EmbeddedDocument):

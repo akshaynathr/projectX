@@ -1,13 +1,17 @@
 from flask.ext.mongoengine import MongoEngine
 
+from posts.models import _post
+
+
+
 db=MongoEngine()
 
 class User(db.Document):
 	
 	email=db.StringField()
 	password=db.StringField()
-	authenticated=db.StringField()
-
+	authenticated=db.BooleanField()
+	post=db.ListField(db.EmbeddedDocumentField('_post'))
 	def is_active(self):
 		return True
 
