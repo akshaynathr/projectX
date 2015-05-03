@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <!-- nclude meta tag to ensure proper rendering and touch zooming -->
+<head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- Include jQuery Mobile stylesheets -->
@@ -13,10 +14,22 @@
 
 <!-- Include the jQuery Mobile library -->
 <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-<head>
+
  <title> HoistMe</title>
  </head>
  <body>
+     <!--facebook-->
+     <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.3&appId=1595048370727774";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
 
    <div data-role="navbar">
         <ul>
@@ -26,6 +39,9 @@
 
         </ul>
     </div>
+
+
+
 
 </body>
 

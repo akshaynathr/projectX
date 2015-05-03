@@ -1,6 +1,7 @@
 
 <!DOCTYPE html>
 <html>
+    <head>
 <!-- nclude meta tag to ensure proper rendering and touch zooming -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -12,7 +13,8 @@
 
 <!-- Include the jQuery Mobile library -->
 <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-<head>
+<script src="post.js" type="text/javascript"></script>
+
  <title>jQuery Mobile Application</title>
  </head>
  <body>
@@ -49,27 +51,16 @@
 		<div class="content" style="height:100%;" data-role="content"><p> Welcome to HoistMe</p> 
 
 
-<ul data-role="listview" data-inset="true">
+<ul id="news_list"  data-role="listview" data-inset="true">
 
+     
+<li data-role="list-divider"> Trending Events Here <span id="count" class="ui-li-count">0</span></li>
 
-<li data-role="list-divider"> Trending Events Here <span class="ui-li-count">2</span></li>
-<li > <a href="#">
-
-
-<h2>Stephen Weber</h2>
-    <p><strong>You've been invited to a meeting at Filament Group in Boston, MA</strong></p>
-    <p>Hey Stephen, if you're available at 10am tomorrow, we've got a meeting with the jQuery team.</p>
-        <p class="ui-li-aside"><strong>6:24</strong>PM</p>
-    
-
-
-
-
-</a></li>
 
 
 </ul>
 
+                    <button id="addnews" onclick="addnews()"> Add news </button>
 
 </div>
 		<footer data-role="footer"> <h1> </h1> </footer>	
