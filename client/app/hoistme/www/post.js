@@ -23,26 +23,69 @@ function callme()
 		     });
 	     }
 	}
+
+
+//sample json 
+
+var data={
+		"1":{ "Head":"This is heading1 from json",
+		    "Title":"This is title1 from json",
+		    "Message":"This is message1",
+		    "Time":"5.00PM"
+				
+		  },
+
+		"2":{ "Head":"This is heading2 from json",
+		    "Title":"This is title2 from json",
+		    "Message":"This is message2",
+		     "Time":"6.00PM"
+				
+		  }
+	
+
+	
+	}
+var content=JSON.parse(data);
+
+
+//alert(content);
+
+function parse(data)
+{
+	
+//call json here//////
+
+//parse function
+
+heading = data["1"]["Head"];
+title=data["1"]["Title"];
+message=data["1"]["Message"];
+time=data["1"]["Time"];
+
+addnews(heading,title,message,time);
+
+}
+
 var count=0;
 
-function addnews()
+function addnews(heading,title,message,time)
 {   count=count+1;
     
     var h2=document.createElement('h2');
-    var h2_txt=document.createTextNode("H2 Testing");
+    var h2_txt=document.createTextNode(heading);
     h2.appendChild(h2_txt);
     
     
     var p_title=document.createElement('p');
     p_title.setAttribute('id','title')
-    var txt_title=document.createTextNode("Testing Title");
+    var txt_title=document.createTextNode(title);
     var strong=document.createElement('strong');
     strong.appendChild(txt_title);
     p_title.appendChild(strong);
     
     var p_message=document.createElement('p');
     p_message.setAttribute('id','message');
-    var txt_message=document.createTextNode("Testing message");
+    var txt_message=document.createTextNode(message);
     p_message.appendChild(txt_message);
     
     
@@ -50,7 +93,7 @@ function addnews()
     var p_time=document.createElement('p');
     p_time.setAttribute('id','time');
     p_time.setAttribute('class','ui-li-aside');
-    var txt_time=document.createTextNode('6.24 PM');
+    var txt_time=document.createTextNode(time);
     var strong_time=document.createElement('strong');
     strong_time.appendChild(txt_time);
     p_time.appendChild(strong_time);
