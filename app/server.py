@@ -1,4 +1,4 @@
-from flask import Flask,render_template,request,redirect,url_for
+from flask import Flask,render_template,request,redirect,url_for,jsonify
 
 from flask.ext.cors import CORS
 
@@ -34,17 +34,16 @@ db.init_app(app)
 
 login_manager=LoginManager()
 login_manager.init_app(app)
-login_manager.login_view='home'
+login_manager.login_view='login'
 
 
 
 #login userload function - predefined for flask login
 
 @login_manager.user_loader
-def load_user(mail):
-    t= User.objects(email=mail).first()
-    print(t)
-    return t
+def load_user(email):
+    user= User.objects(email=email).first()
+    return user
 
 
 
@@ -86,7 +85,8 @@ def login():
 		if obj:
 			print ("User found. Proceeding login ");
 			login_user(obj)
-		        return "Logged in "			
+		        return render_template('profile.html',user=obj,posts=obj.post)
+			return jsonify(results=obj)			
 		else:	
 			print("User not found . Proceed Registration ");
 			return redirect(url_for('register'))
@@ -127,7 +127,6 @@ def addtodatabase():
 		newGLOBAL=Global()
 		newUser.email= email
 		newUser.password=password
-		newUser.authenticated=True
 		newUser.save()
 		newGLOBAL.inc__total_users_registered=1
 		newGLOBAL.save()
@@ -138,8 +137,22 @@ def addtodatabase():
 
 
 
-#admin use- total users
+#admin use 
+
 @app.route('/admin')
-def count():
-	obj=User()
-	return "Count"+(obj.objects.item_frequencies())
+@login_required
+def admin():
+	return render_template('admin/index.html',current_user=current_user) 
+
+
+@app.route('/test')
+
+def test():
+	a=User.objects.all()
+	return jsonify(results=a)
+
+
+@app.route('/drop')
+def drop():
+	User.drop_collection()
+	return "dropped"
